@@ -6,6 +6,7 @@ const app = express()
 app.use(express.json())
 
 const transactionRoutes = require("./routes/transactionRoutes")
+const errorMiddleware = require("./middleware/errorMiddleware")
 
 app.get("/", (req, res) => {
   res.json({
@@ -20,5 +21,6 @@ app.get("/", (req, res) => {
 // })
 
 app.use("/api/transactions", transactionRoutes)
+app.use(errorMiddleware)
 
 module.exports = app
