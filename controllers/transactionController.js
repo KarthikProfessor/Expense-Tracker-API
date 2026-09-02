@@ -1,6 +1,6 @@
 const Transaction = require("../models/Transaction")
 
-const createTransaction = async(req, res) => {
+const createTransaction = async(req, res, next) => {
   try {
 
     const {
@@ -32,7 +32,7 @@ const createTransaction = async(req, res) => {
   }
 }
 
-const getTransactions = async(req, res) => {
+const getTransactions = async(req, res, next) => {
   try {
 
     const { 
@@ -131,7 +131,7 @@ const getTransactions = async(req, res) => {
   }
 }
 
-const getTransactionSummary = async(req, res) => {
+const getTransactionSummary = async(req, res, next) => {
   try {
 
     const summary = await Transaction.aggregate([
@@ -185,7 +185,7 @@ const getTransactionSummary = async(req, res) => {
   }
 }
 
-const categorySummary = async(req, res) => {
+const categorySummary = async(req, res, next) => {
   try {
 
     const summary = await Transaction.aggregate([
@@ -229,7 +229,7 @@ const categorySummary = async(req, res) => {
   }
 }
 
-const monthlySummary = async(req, res) => {
+const monthlySummary = async(req, res, next) => {
   try {
 
     const summary = await Transaction.aggregate([
