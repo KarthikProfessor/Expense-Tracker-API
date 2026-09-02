@@ -24,11 +24,7 @@ const createTransaction = async(req, res, next) => {
     res.status(201).json(transaction)
 
   } catch (error) {
-
-    res.status(500).json({
-      message: "Failed to create transaction",
-      error: error.message
-    })
+    next(error)
   }
 }
 
@@ -124,10 +120,7 @@ const getTransactions = async(req, res, next) => {
     })
 
   } catch (error) {
-    res.status(500).json({
-      message: "Failed to get transactions",
-      error: error.message
-    })
+    next(error)
   }
 }
 
@@ -177,10 +170,7 @@ const getTransactionSummary = async(req, res, next) => {
 
   } catch (error) {
 
-    res.status(500).json({
-      message: "Failed to get transaction summary",
-      error: error.message
-    })
+    next(error)
 
   }
 }
@@ -222,10 +212,7 @@ const categorySummary = async(req, res, next) => {
     res.status(200).json(summary)
 
   } catch (error) {
-    res.status(500).json({
-      message: "Failed to get category summary",
-      error: error.message
-    })
+    next(error)
   }
 }
 
@@ -288,10 +275,7 @@ const monthlySummary = async(req, res, next) => {
     res.status(200).json(summary)
 
   } catch (error) {
-    res.status(500).json({
-      message: "Failed to get monthly summary",
-      error: error.message
-    })
+    next(error)
   }
 }
 
